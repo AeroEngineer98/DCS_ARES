@@ -43,20 +43,23 @@ ARES =  {
     -- add model draw args for network transmitting to this draw_args table (32 limit)
     net_animation ={
         0, -- front gear
-        -- 1, -- front gear suspension
+        1, -- front gear suspension
 		2, -- nose wheel steering
 		3, -- main gear
-        -- 4, -- main gear suspension
+        4, -- main gear suspension
 		5, -- main gear
-		-- 6, -- main gear suspension
-        9, -- right flap
-        10, -- left flap
+		6, -- main gear suspension
+        --9, -- right flap
+        --10, -- left flap
         11, -- right aileron
         12, -- left aileron
-        15, -- right elevator
-        16, -- left elevator
-        17, -- rudder
-		21, -- speadbreak
+        --15, -- right elevator
+        --16, -- left elevator
+        17, -- Right rudder
+		18, -- Left rudder
+		19, -- right canard
+		20, -- left canard
+		21, -- speedbreak
         38, -- canopy
 		-- 39, -- pilots heads
 		-- 49, -- nav lights
@@ -85,7 +88,6 @@ ARES =  {
 		312, -- pylons
 		-- 337, -- back pilot head left right
 		-- 399, -- back pilot head up down
-		407, -- propellerer
 		472, -- back pilot disapear
     },
 
@@ -124,7 +126,7 @@ ARES =  {
 		AOA_take_off 				= math.rad(9.0), -- AoA in take off (for AI) -- in radians
 		bank_angle_max 				= 60, -- Max bank angle (for AI)
 	
-		has_afteburner 				= false, -- AFB yes/no
+		has_afteburner 				= true, -- AFB yes/no
 		has_speedbrake 				= true, -- Speedbrake yes/no
 		has_differential_stabilizer	= false, -- differential stabilizers
 
@@ -152,7 +154,7 @@ ARES =  {
 		thrust_sum_ab 				= 17000, -- thrust inkg (71kN)
 		length 						= 11.332, -- full lenght in m
 		height 						= 3.974, -- height in m
-		flaps_maneuver 				= 1.0, -- Max flaps in take-off and maneuver (0.5 = 1st stage; 1.0 = 2nd stage) (for AI)
+		flaps_maneuver 				= 0.5, -- Max flaps in take-off and maneuver (0.5 = 1st stage; 1.0 = 2nd stage) (for AI)
 		range 						= 1568, -- Max range in km (for AI)
 		RCS 						= 2.5, -- Radar Cross Section m2
 		IR_emission_coeff 			= 0.1, -- Normal engine -- IR_emission_coeff = 1 is Su-27 without afterburner. It is reference.
@@ -166,29 +168,19 @@ ARES =  {
 		{
 			[1] = 
 			{
-				pos 		=  {2.427,-0.565,0.563}, -- nozzle coords
+				pos 		=  {0.0,-3.72224,0.284127}, -- nozzle coords
 				elevation   =  0, -- AFB cone elevation –- for engines mounted at an angle to fuselage, change elevation
-				diameter	 = 0*0.1, -- AFB cone diameter
+				diameter	 = 0.85, -- AFB cone diameter
 				exhaust_length_ab   = -3.0, -- lenght in m
 				exhaust_length_ab_K = 0.3, -- AB animation
 				engine_number  = 1, --both to first engine
 				smokiness_level     = 	0.1,  --both to first engine
 			},
 	
-			[2] = 
-			{
-				pos 		=  {2.427,-0.565,-0.563}, -- nozzle coords
-				elevation   =  0, -- AFB cone elevation
-				diameter	 = 0*0.1, -- AFB cone diameter
-				exhaust_length_ab   = -3.0, -- lenght in m
-				exhaust_length_ab_K = 0.3, -- AB animation
-				engine_number  = 1, --both to first engine
-				smokiness_level     = 	0.1,  --both to first engine
-			},
 			
 		
 		}, -- end of engines_nozzles
-		crew_size	 = 2,
+		crew_size	 = 1,
 		crew_members = 
 		{
 				[1] = 
@@ -201,18 +193,6 @@ ARES =  {
 					role_display_name    = _("Pilot"),
 					ejection_order      = 0,
 				}, -- end of [1]
-				
-				[2] = 
-				{	pilot_name            = "pilot_f86",
-					ejection_seat_name	=	17,
-					drop_canopy_name	=	0,
-					pos = 	{-1.4,	0.5,	0},
-					pilot_body_arg      = 472,
-					can_be_playable 	 = false,
-					role 				 = "instructor",
-					role_display_name    = _("Instructor pilot"),
-					ejection_order      = 1,
-				}, -- end of [2]
 		}, -- end of crew_members
 	
 		fires_pos = 
@@ -641,9 +621,9 @@ ARES =  {
 			Nmg		=	64.6, -- % RPM at idle
 			MinRUD	=	0, -- always 0 in current modeled aircraft -- Min state of the throttle
 			MaxRUD	=	1, -- always 1 in current modeled aircraft -- Max state of the throttle
-			MaksRUD	=	1, -- .85 for afterburning, 1 for non-afterburning engine. -- Military power state of the throttle
-			ForsRUD	=	1, -- .91 for afterburning, 1 for non-afterburning -- Afterburner state of the throttle
-			typeng	=	3, -- E_TURBOJET = 0, E_TURBOJET_AB = 1, E_PISTON = 2, E_TURBOPROP = 3,	E_TURBOFAN    = 4,	E_TURBOSHAFT = 5
+			MaksRUD	=	0.85, -- .85 for afterburning, 1 for non-afterburning engine. -- Military power state of the throttle
+			ForsRUD	=	0.91, -- .91 for afterburning, 1 for non-afterburning -- Afterburner state of the throttle
+			typeng	=	4, -- E_TURBOJET = 0, E_TURBOJET_AB = 1, E_PISTON = 2, E_TURBOPROP = 3,	E_TURBOFAN    = 4,	E_TURBOSHAFT = 5
 			hMaxEng	=	19.5, -- maximum operating altitude for the engine in km -- typically higher than service ceiling of the aircraft
 			dcx_eng	=	0.095, -- drag coefficient for the engine -- no correlation found -- most common values are 0.0085 and 0.0144
 			cemax   = 	0.37, -- not used for fuel calculation , only for AI routines to check flight time ( fuel calculation algorithm is built in )
