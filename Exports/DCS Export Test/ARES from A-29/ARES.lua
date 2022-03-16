@@ -12,11 +12,9 @@ ARES =  {
 	Cannon 				= "yes",
 	HumanCockpit 		= false,
 	HumanCockpitPath    = current_mod_path..'/Cockpit/',
-	Picture 			= "A-29B.png",
+	Picture 			= "A-29B.png", 
 	Rate 				= 40, -- RewardPoint in Multiplayer
 	Shape 				= "ARES",
-	propellorShapeType  = '3ARG_PROC_BLUR',
-	propellorShapeName  = 'a29b_blade.fbx',
 	debrisGeneration     = true,
 	shape_table_data 	= 
 	{
@@ -103,11 +101,11 @@ ARES =  {
     index       =  WSTYPE_PLACEHOLDER;
 	attribute  	= {wsType_Air, wsType_Airplane, wsType_Fighter, WSTYPE_PLACEHOLDER ,ARES,"Fighters", "Refuelable",},
 	Categories	= {"{78EFB7A2-FD52-4b57-A6A6-3BF0E1D6555F}", "Interceptor",},	
-	    M_empty									=	3356,  -- kg
-		M_nominal								=	3900,  -- kg  -- kg ~ %50 fuel, combat load
-		M_max									=	5400,  -- kg
-		M_fuel_max								=   495, -- utilizável 495 --509 + 239 + 249*2 + 231,   -- kg Asas, Fuselage, Subalar, Ventral,
-        M_fuel_per_tank 						= 	{245, 250}, -- kg
+	    M_empty									=	5120,  -- kg
+		M_nominal								=	6400,  -- kg  -- kg ~ %50 fuel, combat load
+		M_max									=	9930,  -- kg
+		M_fuel_max								=   640, -- utilizável 495 --509 + 239 + 249*2 + 231,   -- kg Asas, Fuselage, Subalar, Ventral,
+        M_fuel_per_tank 						= 	{320, 320}, -- kg
 		H_max									=	10668 , -- m
 
 		average_fuel_consumption 	= 0.302, -- this is highly relative, but good estimates are 36-40l/min = 28-31kg/min = 0.47-0.52kg/s -- 45l/min = 35kg/min = 0.583kg/s
@@ -130,36 +128,36 @@ ARES =  {
 		has_speedbrake 				= true, -- Speedbrake yes/no
 		has_differential_stabilizer	= false, -- differential stabilizers
 
-		main_gear_pos 				= 	{-0.66,	-2.13,	1.813}, --{-1,	-2.03,	2.},
-		nose_gear_pos 				= 	{2.544, -2.184,  -0.011}, --{2.808,	-2.09,	0},
-		tand_gear_max				=	0.363970234, -- tangent of degrees of rotation max of nose wheel steering
+		main_gear_pos 				= 	{-0.225224,	-1.58723,	-1.58913}, -- A-29B {-1,	-2.03,	2.},    -- in {Y, Z, X} format??
+		nose_gear_pos 				= 	{4.15486,	-1.58895,	0}, -- A-29B{2.808,	-2.09,	0},
+		tand_gear_max				=	0.57735026919, -- tangent of degrees of rotation max of nose wheel steering
 
 		nose_gear_amortizer_direct_stroke        = 0.00,    -- down from nose_gear_pos !!!
-		nose_gear_amortizer_reversal_stroke      = -0.156,   -- up
-		nose_gear_amortizer_normal_weight_stroke = -0.056,   
+		nose_gear_amortizer_reversal_stroke      = -0.16,   -- up
+		nose_gear_amortizer_normal_weight_stroke = -0.06,   
 		main_gear_amortizer_direct_stroke        = 0.00,     -- down from main_gear_pos !!!
-		main_gear_amortizer_reversal_stroke      = -0.156,   -- up
-		main_gear_amortizer_normal_weight_stroke = -0.056,   
-
-		nose_gear_wheel_diameter	=	0.433, --in m
-		main_gear_wheel_diameter	=	0.563, -- in m
+		main_gear_amortizer_reversal_stroke      = -0.16,   -- up
+		main_gear_amortizer_normal_weight_stroke = -0.06,   
+	
+		nose_gear_wheel_diameter	=	0.547, --in m
+		main_gear_wheel_diameter	=	0.643, -- in m
 	
 	
 
-		wing_area 					= 19.4, -- wing area in m2
-		wing_span 					= 11.135, -- wing span in m
-		wing_type 					= 0,
+		wing_area 					= 27.1241, -- wing area in m2
+		wing_span 					= 14.3121, -- wing span in m
+		wing_type 					= 0, -- 0 = fixed wing
 
 		thrust_sum_max 				= 17000, -- thrust in kg (44kN)
-		thrust_sum_ab 				= 17000, -- thrust inkg (71kN)
-		length 						= 11.332, -- full lenght in m
-		height 						= 3.974, -- height in m
+		thrust_sum_ab 				= 22000, -- thrust in kg (71kN)
+		length 						= 12.5464, -- full length in m
+		height 						= 3.7782, -- height in m
 		flaps_maneuver 				= 0.5, -- Max flaps in take-off and maneuver (0.5 = 1st stage; 1.0 = 2nd stage) (for AI)
 		range 						= 1568, -- Max range in km (for AI)
-		RCS 						= 2.5, -- Radar Cross Section m2
+		RCS 						= 3, -- Radar Cross Section m2
 		IR_emission_coeff 			= 0.1, -- Normal engine -- IR_emission_coeff = 1 is Su-27 without afterburner. It is reference.
-		IR_emission_coeff_ab 		= 0.1, -- With afterburner
-		wing_tip_pos 				= {-0.39, -0.412,     5.591}, -- wingtip coords for visual effects
+		IR_emission_coeff_ab 		= 0.2, -- With afterburner
+		wing_tip_pos 				= {-3.0254, -0.0608, -7.1451}, -- wingtip coords for visual effects
 		brakeshute_name 			= 0, -- Landing - brake chute visual shape after separation
 		
 		-- The following is used for graphical AB effects
@@ -168,13 +166,13 @@ ARES =  {
 		{
 			[1] = 
 			{
-				pos 		=  {0.0,-3.72224,0.284127}, -- nozzle coords
+				pos 		=  {-4.9564,0.39713,0}, -- nozzle coords
 				elevation   =  0, -- AFB cone elevation –- for engines mounted at an angle to fuselage, change elevation
-				diameter	 = 0.85, -- AFB cone diameter
-				exhaust_length_ab   = -3.0, -- lenght in m
+				diameter	 = 0.661, -- AFB cone diameter
+				exhaust_length_ab   = 3.0, -- lenght in m
 				exhaust_length_ab_K = 0.3, -- AB animation
 				engine_number  = 1, --both to first engine
-				smokiness_level     = 	0.1,  --both to first engine
+				smokiness_level     = 	1.0,  --both to first engine
 			},
 	
 			
@@ -359,7 +357,7 @@ ARES =  {
 		}, -- end of chaff_flare_dispenser
 
 		Pylons =     {
-			pylon(1, 0, -0.200, -0.90, -3.273,
+			pylon(1, 0, -0.814, -0.525, -2.399,
 				{
 					connector = 'pylon1', arg = 308 ,arg_value = 0,
 					use_full_connector_position = false,
@@ -387,7 +385,7 @@ ARES =  {
 					{ CLSID = "<CLEAN>", arg_value = 1 }, -- CLEAN --
 				}
 			),
-			pylon(2, 0, -0.200, -1.0, -2.437,
+			pylon(2, 0, -0.116, -0.611, -0.749,
 				{
 					connector = 'pylon2', arg = 309 ,arg_value = 0,
 					use_full_connector_position = false,
@@ -415,7 +413,7 @@ ARES =  {
 					{ CLSID = "<CLEAN>", arg_value = 1 }, -- CLEAN --
 				}
 			),
-			pylon(3, 0, -0.66, -1.236, -0.012,
+			pylon(3, 0, -0.116, -0.611, -0.749,
 				{
 					connector = 'pylon3', arg = 310 ,arg_value = 0,
 					use_full_connector_position = false,
@@ -432,11 +430,18 @@ ARES =  {
 					{ CLSID = "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}" }, -- GBU16
 					{ CLSID = "{5335D97A-35A5-4643-9D9B-026C75961E52}" }, -- CBU-97
 
-					{ CLSID = "<CLEAN>", arg_value = 1 }, -- CLEAN --
+					{ CLSID = "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}" }, -- LAU68-MK156
+					{ CLSID = "{FD90A1DC-9147-49FA-BF56-CB83EF0BD32B}" }, -- LAU-61 - 19
+	                { CLSID = "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}" }, -- LAU-68-M151 High Explosive *7
+
+					-- { CLSID = "{CBU_105}" ,arg_increment = 0.0}, 		-- CBU-105	
+					-- { CLSID	= "AGM114x2_OH_58" }, 						--"AGM-114K * 2"
+					-- { CLSID = "{GBU_49}" ,arg_increment = 0.10 }, 		--FRENCH GBU-49
 	
+					{ CLSID = "<CLEAN>", arg_value = 1 }, -- CLEAN --
 				}
 			),
-			pylon(4, 0, -0.200, -1.0, 2.415,
+			pylon(4, 0, -0.814, -0.525, -2.399,
 				{
 					connector = 'pylon4', arg = 311 ,arg_value = 0,
 					use_full_connector_position = false,
@@ -464,35 +469,7 @@ ARES =  {
 					{ CLSID = "<CLEAN>", arg_value = 1 }, -- CLEAN --
 				}
 			),
-			pylon(5, 0, -0.20, -0.9, 3.251,
-				{
-					connector = 'pylon5', arg = 312 ,arg_value = 0,
-					use_full_connector_position = false,
-				 },
-				{
-					{ CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}" }, -- AIM-9P
-	
-					{ CLSID = "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}" }, -- Mk-20 Rockeye
-					{ CLSID = "{90321C8E-7ED1-47D4-A160-E074D5ABD902}" }, -- Mk-81
-					{ CLSID = "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}" }, -- Mk-82
-					{ CLSID = "{Mk82SNAKEYE}" }, 						  -- MK82SE
-					{ CLSID = "{00F5DAC4-0466-4122-998F-B1A298E34113}" }, -- M-117
-					{ CLSID = "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}" }, -- GBU12
-					{ CLSID = "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}" }, -- GBU16
-					{ CLSID = "{5335D97A-35A5-4643-9D9B-026C75961E52}" }, -- CBU-97
-	
-					{ CLSID = "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}" }, --LAU68-MK156
-					{ CLSID = "{FD90A1DC-9147-49FA-BF56-CB83EF0BD32B}" }, -- LAU-61 - 19
-	                { CLSID = "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}" }, -- LAU-68-M151 High Explosive *7
-
-					-- { CLSID = "{CBU_105}" ,arg_increment = 0.0}, 		-- CBU-105	
-					-- { CLSID	= "AGM114x2_OH_58" }, 						--"AGM-114K * 2"
-					-- { CLSID = "{GBU_49}" ,arg_increment = 0.10 }, 		--FRENCH GBU-49
-
-					{ CLSID = "<CLEAN>", arg_value = 1 }, -- CLEAN --
-				}
-			),
-			pylon(6, 0, 1.664, -0.933, 0.715,
+			pylon(5, 0, 1.664, -0.933, 0.715,
 				{
 					use_full_connector_position = true,
 					connector 		= "SmokeWhite",
@@ -630,12 +607,6 @@ ARES =  {
 			cefor   = 	0.37, -- not used for fuel calculation , only for AI routines to check flight time ( fuel calculation algorithm is built in )
 			dpdh_m	=	1800, --  altitude coefficient for max thrust -- altitude effects to thrust -- The best recommendation at this point is to start with these values between 2000 and 3000 and adjust as needed after initial flight testing
 			dpdh_f	=	1800, --  altitude coefficient for AB thrust ???? or altitude effects to fuel rate -- The best recommendation at this point is to start with these values between 2000 and 3000 and adjust as needed after initial flight testing
-			prop_locations = {{3.149, -0.524 , 0.014}, {0.0, 0.0, math.rad(-1.87)},},
-			prop_blades_count = 5,
-			prop_pitch_min		= 23.0,	-- prop pitch min, degrees 
-			prop_pitch_max		= 65.0,	-- prop pitch max, degrees 
-			prop_pitch_feather	= 80.0,	-- prop pitch feather position, degrees if feather < prop_pitch_max no feathering available
-			Nominal_RPM = 2000,
 			Startup_Prework = 1.0,
 			Startup_RPMs = {
 				{0.0, 0},
@@ -651,81 +622,21 @@ ARES =  {
 			-- Pmax - total thrust in Mil Pwr in Newtons for all engines
 			-- Pfor - total thrust in AB in Newtons for all engines
 			--   M		Pmax		 Pfor
-			{0.0,		16620.0},
-			{0.1,		15600.0},
-			{0.2,		14340.0},
-			{0.3,		13320.0},
-			{0.4,		12230.0},
-			{0.5,		11300.0},
-			{0.6,		10600.0},
-			{0.7,		10050.0},
-			{0.8,		 9820.0},
-			{0.9,		 5902.0},
-			{1.0,		 3469.0}
+			{0.0,		34000.0,	 70000.0},	-- Made up from F-18 div by 2
+			{0.1,		34000.0,	 70000.0},
+			{0.2,		34000.0,	 70000.0},
+			{0.3,		35250.0,	 70000.0},
+			{0.4,		36500.0,	 70000.0},
+			{0.5,		38250.0,	 69250.0},
+			{0.6,		40000.0,	 68500.0},
+			{0.7,		46000.0,	 70000.0},
+			{0.8,		45000.0,	 72500.0},
+			{0.9,		43000.0,	 71500.0},
+			{1.0,		30000.0,	 71500.0}
 		}, -- end of table_data
 			-- M - Mach number
 			-- Pmax - Engine thrust at military power
 			-- Pfor - Engine thrust at AFB
-
-            extended =
-                {
-                
-                    	thrust_max = -- thrust interpolation table by altitude and mach number, 2d table
-                        { -- Minimum thrust 2000 kN, maximum thrust 16700 kN
-                            M 		 = {0*666.739,100*666.739,120*666.739,140*666.739,160*666.739,200*666.739,220*666.739,280*666.739,320*666.739,400*666.739},
-                            H		 = {0,3048,6096,9144,10500,12192},
-                            thrust	 = {--KCAS 0       100      120      140      160     200     220     280      320     400
-                                        {    17000,   17000,   17000,   17000,   17000,  17000,  17000,  17000,   16925,  17000 },--H = 0 (sea level)
-                                        {    16000,   16000,   16000,   16000,   16000,  16000,  16000,  16000,   16000,  16000 },--H = 3048 (10kft)
-                                        {    11500,   11500,   11500,   11500,   11500,  11500,  11500,  11500,   11500,  11500 },--H = 6096 (20kft)
-                                        {     7000,    7000,    7000,    7000,    7000,   7000,   7000,   7000,    7000,   7000 },--H = 9144 (30kft)
-                                        {     5000,    5000,    5000,    5000,    5000,   5000,   5000,   5000,    5000,   5000 },--H = 10500 (34kft)
-										{     5000,    5000,    5000,    5000,    5000,   5000,   5000,   5000,    5000,   5000 },--H = 12192 (40kft)
-                                        
-                            },
-                        },
-						TSFC_max =  -- thrust specific fuel consumption by altitude and Mach number for RPM  100%, 2d table
-						{			-- factor = kg/h /2000
-                            M 		 = {0/666.739, 140/666.739, 160/666.739, 200/666.739, 220/666.739, 260/666.739, 300/666.739},
-							H		 = {0, 1524, 3048, 4572, 6096, 7620, 9144},
-							TSFC	 = {-- KT 0      	140     	160			200     	220 		260		300--0.1264
-										{   150/1800,  195/1800,  205/1800,    243/1800,  271/1800, 347/1800, 380/1800},--H = 0       -- SL
-										{   140/1800,  180/1800,  188/1800,    218/1800,  240/1800, 300/1800, 360/1800},--H = 1524    -- 5000' 
-										{   130/1800,  152/1800,  175/1800,    195/1800,  215/1800, 268/1800, 330/1800},--H = 3048    -- 10000'
-										{   120/1800,  120/1800,  160/1800,    177/1800,  191/1800, 234/1800, 285/1800},--H = 4572    -- 15000'
-										{   115/1800,  115/1800,  135/1800,    165/1800,  175/1800, 210/1800, 250/1800},--H = 6096    -- 20000'
-										{   110/1800,  110/1800,  110/1800,    160/1800,  165/1800, 195/1800, 210/1800},--H = 7620    -- 25000'
-										{   110/1800,  110/1800,  110/1800,    152/1800,  165/1800, 175/1800, 175/1800},--H = 9144    -- 30000'
-							}
-						},
-
-						TSFC_throttle_responce =  -- correction to TSFC for different engine RPM, 1d table
-						{
-							RPM = {0, 70, 80, 90, 100},
-							K   = {1,  1,  1,  1,   1},
-						},
-						--rpm_acceleration_time_factor = -- time factor for engine governor  ie RPM += (desired_RPM - RPM ) * t(RPM) * dt
-						--{
-						--	RPM  = {0, 50, 100},
-						--	t    = {0.3,0.3,0.3}
-						--},
-						--rpm_deceleration_time_factor = -- time factor for engine governor
-						--{
-						--	RPM  = {0, 50, 100},
-						--	t    = {0.3,0.3,0.3}
-						--},
-						rpm_throttle_responce = -- required RPM according to throttle position
-						{
-							throttle = {0, 0.1, 0.55,  1.0},
-							RPM      = {64.6, 84, 92, 100},
-						},
-						thrust_rpm_responce = -- thrust = K(RPM) * thrust_max(M,H)
-						{
-							RPM = {0, 64.6, 84,   100},
-							K   = {0, 0.00, 0.1,  1},
-						},
-                }, -- end of extended data
-
            
 		}, -- end of engine
 		-- thrust_max = -- thrust interpolation table by altitude and mach number, 2d table.  Modified for carrier takeoffs at/around 71 foot deck height
@@ -921,7 +832,7 @@ ARES =  {
         MaxHeight = "20000",
         MaxSpeed = "3000",
         MaxTakeOffWeight = "41200",
-        Picture = "A-29B.png",
+        Picture = "ARES_Loadout.png", -- Picture in loadout menu
         Rate = "30",
         Shape = "ARES", -- EDM File for Plane
         TakeOffRWCategories = 
@@ -962,7 +873,6 @@ ARES =  {
 
 	Guns = {
 		MG_20({muzzle_pos = {0.82,-0.705, 2.326},_connector =  "Point_Gun_01_R",rates = {1025},effect_arg_number = 350,mixes = {{1,2,2,3,3}},azimuth_initial = 0.0,elevation_initial = 0,supply_position = {4.5,0.22, 0.3}}),-- MITRAIL AVR 1 
-		MG_20({muzzle_pos = {0.82, -0.705, -2.326},_connector =  "Point_Gun_01_L",rates = {1025},effect_arg_number = 436,mixes = {{1,2,2,3,3}},azimuth_initial = 0.0,elevation_initial = 0,supply_position = {2.0, -0.25, 0.8}}),-- MITRAIL AVR 2 B
 	}, -- 3dsmax X, Z, -Y
 }
 
