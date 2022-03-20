@@ -1,7 +1,7 @@
 ViewSettings = {
 	Cockpit = {
 	[1] = {-- player slot 1
-		CockpitLocalPoint      = {0.1000,0.294,0.000000},--Cockpit  = front,height 4.705000,1.336000,0.000000
+		CockpitLocalPoint      = {3.254,1.116,0.000000},--Cockpit  = front,height 4.705000,1.336000,0.000000
 		CameraViewAngleLimits  = {20.000000,160.000000},
 		CameraAngleRestriction = {false,90.000000,0.400000},
 		CameraAngleLimits      = {190.000000,-75.000000,115.000000},--Kopf drehen = links rechts,runter,hoch
@@ -10,7 +10,7 @@ ViewSettings = {
 		ShoulderSize		   = 0.25,-- moves body when azimuth value is more than 90 degrees
 		Allow360rotation	   = false,
 	},	
-	[2] = {-- player slot 2
+	--[[[2] = {-- player slot 2
 		CockpitLocalPoint      = {-1.3200,0.794,0.000000},--Cockpit  = front,height 4.705000,1.336000,0.000000
 		CameraViewAngleLimits  = {20.000000,160.000000},
 		CameraAngleRestriction = {false,90.000000,0.400000},
@@ -19,7 +19,7 @@ ViewSettings = {
 		limits_6DOF            = {x = {0.030000,0.400000},y ={-0.300000,0.100000},z = {-0.300000,0.300000},roll = 90.000000},--Move = back front, top bottom, left right
 		ShoulderSize		   = 0.25,-- moves body when azimuth value is more than 90 degrees
 		Allow360rotation	   = false,
-	},	
+	},	--]]
 	}, -- Cockpit 
 	Chase = {
 		LocalPoint      = {-10.0,1.0,3.0},

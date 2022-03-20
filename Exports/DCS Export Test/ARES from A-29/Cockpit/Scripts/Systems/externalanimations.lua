@@ -142,12 +142,13 @@ function update()
 	
 
 	local PITCH_STATE = sensor_data:getStickRollPosition() / 100
-	set_aircraft_draw_argument_value(15, PITCH_STATE) -- right elevator
-	set_aircraft_draw_argument_value(16, PITCH_STATE) -- left elevator
+	set_aircraft_draw_argument_value(19, PITCH_STATE) -- right canard
+	set_aircraft_draw_argument_value(20, PITCH_STATE) -- left canard
 
 	local RUDDER_STATE = sensor_data:getRudderPosition() / 100
-	set_aircraft_draw_argument_value(17, -RUDDER_STATE)
-	set_aircraft_draw_argument_value(2, -RUDDER_STATE)
+	set_aircraft_draw_argument_value(17, -RUDDER_STATE) -- right rudder
+	set_aircraft_draw_argument_value(18, -RUDDER_STATE) -- left rudder
+	set_aircraft_draw_argument_value(2, -RUDDER_STATE) -- nose wheel steering
 end
 
 

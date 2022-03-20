@@ -39,7 +39,7 @@ local min_gar8_snd_pitch=0.9   -- seek tone pitch adjustment when "bad lock"
 local max_gar8_snd_pitch=1.1   -- seek tone pitch adjustment when "good lock"
 local gar8_snd_pitch_delta=(max_gar8_snd_pitch-min_gar8_snd_pitch)
 
-local station_count = 6
+local station_count = 4
 local wpn_sto_name = {}
 local wpn_sto_count = {}
 local wpn_sto_container = {}
@@ -149,7 +149,7 @@ end
 local function update_storages()
     wpn_sto_total_count = {}
     for i = 0, station_count-1 do
-        local station_info = dev:get_station_info(i)
+        local station_info = dev:get_station_info(i)		
         local wname = get_wpn_weapon_name(station_info["CLSID"])
         wpn_sto_name[i+1] = wname
         wpn_sto_count[i+1] = station_info["count"]

@@ -19,7 +19,7 @@ ARES =  {
 	shape_table_data 	= 
 	{
 		{
-			file  	 	= 'ARES';
+			file  	 	= 'ARES'; -- name of edm file
 			life  	 	= 20; -- lifebar
 			vis   	 	= 3; -- visibility gain.
 			desrt    	= 'Fighter-2-crush'; -- Name of destroyed object file name
@@ -47,34 +47,23 @@ ARES =  {
         4, -- main gear suspension
 		5, -- main gear
 		6, -- main gear suspension
-        --9, -- right flap
-        --10, -- left flap
         11, -- right aileron
         12, -- left aileron
-        --15, -- right elevator
-        --16, -- left elevator
-        17, -- Right rudder
-		18, -- Left rudder
+        17, -- right rudder
+		18, -- left rudder
 		19, -- right canard
 		20, -- left canard
-		21, -- speedbreak
+		21, -- speedbrake
         38, -- canopy
-		-- 39, -- pilots heads
-		-- 49, -- nav lights
 		50, -- pilots fron eject
-		-- 51, -- landing lights
-		-- 77, -- wheel rollAngle
 		83, -- formation lights
-		-- 99, -- front pilot up down
 		101, -- wheel rolling
 		102, -- wheel rolling
 		103, -- wheel rolling
-		-- 114, -- canopy
 		190, -- nav light
 		191, -- nav light
 		192, -- strobe light
 		193, -- landing light
-		-- 198, -- beacon light
 		200, -- beacon light
 		201, -- beacon rotation
 		208, -- taxi light
@@ -84,8 +73,6 @@ ARES =  {
 		310, -- pylons
 		311, -- pylons
 		312, -- pylons
-		-- 337, -- back pilot head left right
-		-- 399, -- back pilot head up down
 		472, -- back pilot disapear
     },
 
@@ -99,7 +86,7 @@ ARES =  {
 
 		
     index       =  WSTYPE_PLACEHOLDER;
-	attribute  	= {wsType_Air, wsType_Airplane, wsType_Fighter, WSTYPE_PLACEHOLDER ,ARES,"Fighters", "Refuelable",},
+	attribute  	= {wsType_Air, wsType_Airplane, wsType_Fighter, WSTYPE_PLACEHOLDER ,A_29B,"Fighters", "Refuelable",},
 	Categories	= {"{78EFB7A2-FD52-4b57-A6A6-3BF0E1D6555F}", "Interceptor",},	
 	    M_empty									=	5120,  -- kg
 		M_nominal								=	6400,  -- kg  -- kg ~ %50 fuel, combat load
@@ -124,7 +111,7 @@ ARES =  {
 		AOA_take_off 				= math.rad(9.0), -- AoA in take off (for AI) -- in radians
 		bank_angle_max 				= 60, -- Max bank angle (for AI)
 	
-		has_afteburner 				= true, -- AFB yes/no
+		has_afteburner 				= false, -- AFB yes/no
 		has_speedbrake 				= true, -- Speedbrake yes/no
 		has_differential_stabilizer	= false, -- differential stabilizers
 
@@ -149,14 +136,14 @@ ARES =  {
 		wing_type 					= 0, -- 0 = fixed wing
 
 		thrust_sum_max 				= 17000, -- thrust in kg (44kN)
-		thrust_sum_ab 				= 22000, -- thrust in kg (71kN)
+		thrust_sum_ab 				= 17000, -- thrust in kg (71kN)
 		length 						= 12.5464, -- full length in m
 		height 						= 3.7782, -- height in m
 		flaps_maneuver 				= 0.5, -- Max flaps in take-off and maneuver (0.5 = 1st stage; 1.0 = 2nd stage) (for AI)
 		range 						= 1568, -- Max range in km (for AI)
 		RCS 						= 3, -- Radar Cross Section m2
 		IR_emission_coeff 			= 0.1, -- Normal engine -- IR_emission_coeff = 1 is Su-27 without afterburner. It is reference.
-		IR_emission_coeff_ab 		= 0.2, -- With afterburner
+		IR_emission_coeff_ab 		= 0.1, -- With afterburner
 		wing_tip_pos 				= {-3.0254, -0.0608, -7.1451}, -- wingtip coords for visual effects
 		brakeshute_name 			= 0, -- Landing - brake chute visual shape after separation
 		
@@ -447,8 +434,8 @@ ARES =  {
 					use_full_connector_position = false,
 				 },
 				{
-					{ CLSID = "{A-29B TANK}" },
-	
+					{ CLSID = "{6CEB49FC-DED8-4DED-B053-E1F033FF72D3}" }, -- AIM-9P
+								
 					{ CLSID = "{ADD3FAE1-EBF6-4EF9-8EFC-B36B5DDF1E6B}" }, -- Mk-20 Rockeye
 					{ CLSID = "{90321C8E-7ED1-47D4-A160-E074D5ABD902}" }, -- Mk-81
 					{ CLSID = "{BCE4E030-38E9-423E-98ED-24BE3DA87C32}" }, -- Mk-82
@@ -457,8 +444,8 @@ ARES =  {
 					{ CLSID = "{DB769D48-67D7-42ED-A2BE-108D566C8B1E}" }, -- GBU12
 					{ CLSID = "{0D33DDAE-524F-4A4E-B5B8-621754FE3ADE}" }, -- GBU16
 					{ CLSID = "{5335D97A-35A5-4643-9D9B-026C75961E52}" }, -- CBU-97
-	
-					{ CLSID = "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}" }, --LAU68-MK156
+
+					{ CLSID = "{4F977A2A-CD25-44df-90EF-164BFA2AE72F}" }, -- LAU68-MK156
 					{ CLSID = "{FD90A1DC-9147-49FA-BF56-CB83EF0BD32B}" }, -- LAU-61 - 19
 	                { CLSID = "{A021F29D-18AB-4d3e-985C-FC9C60E35E9E}" }, -- LAU-68-M151 High Explosive *7
 
@@ -598,8 +585,8 @@ ARES =  {
 			Nmg		=	64.6, -- % RPM at idle
 			MinRUD	=	0, -- always 0 in current modeled aircraft -- Min state of the throttle
 			MaxRUD	=	1, -- always 1 in current modeled aircraft -- Max state of the throttle
-			MaksRUD	=	0.85, -- .85 for afterburning, 1 for non-afterburning engine. -- Military power state of the throttle
-			ForsRUD	=	0.91, -- .91 for afterburning, 1 for non-afterburning -- Afterburner state of the throttle
+			MaksRUD	=	1, -- .85 for afterburning, 1 for non-afterburning engine. -- Military power state of the throttle
+			ForsRUD	=	1, -- .91 for afterburning, 1 for non-afterburning -- Afterburner state of the throttle
 			typeng	=	4, -- E_TURBOJET = 0, E_TURBOJET_AB = 1, E_PISTON = 2, E_TURBOPROP = 3,	E_TURBOFAN    = 4,	E_TURBOSHAFT = 5
 			hMaxEng	=	19.5, -- maximum operating altitude for the engine in km -- typically higher than service ceiling of the aircraft
 			dcx_eng	=	0.095, -- drag coefficient for the engine -- no correlation found -- most common values are 0.0085 and 0.0144
@@ -622,17 +609,17 @@ ARES =  {
 			-- Pmax - total thrust in Mil Pwr in Newtons for all engines
 			-- Pfor - total thrust in AB in Newtons for all engines
 			--   M		Pmax		 Pfor
-			{0.0,		34000.0,	 70000.0},	-- Made up from F-18 div by 2
-			{0.1,		34000.0,	 70000.0},
-			{0.2,		34000.0,	 70000.0},
-			{0.3,		35250.0,	 70000.0},
-			{0.4,		36500.0,	 70000.0},
-			{0.5,		38250.0,	 69250.0},
-			{0.6,		40000.0,	 68500.0},
-			{0.7,		46000.0,	 70000.0},
-			{0.8,		45000.0,	 72500.0},
-			{0.9,		43000.0,	 71500.0},
-			{1.0,		30000.0,	 71500.0}
+			{0.0,		34000.0,	 34000.0},	-- Made up from F-18 div by 2 - F404 w/out AB
+			{0.1,		34000.0,	 34000.0},
+			{0.2,		34000.0,	 34000.0},
+			{0.3,		35250.0,	 35250.0},
+			{0.4,		36500.0,	 36500.0},
+			{0.5,		38250.0,	 38250.0},
+			{0.6,		40000.0,	 40000.0},
+			{0.7,		46000.0,	 46000.0},
+			{0.8,		45000.0,	 45000.0},
+			{0.9,		43000.0,	 43000.0},
+			{1.0,		30000.0,	 30000.0}
 		}, -- end of table_data
 			-- M - Mach number
 			-- Pmax - Engine thrust at military power
@@ -871,9 +858,10 @@ ARES =  {
 
 	mapclasskey = "P0091000024",
 
-	Guns = {
-		MG_20({muzzle_pos = {0.82,-0.705, 2.326},_connector =  "Point_Gun_01_R",rates = {1025},effect_arg_number = 350,mixes = {{1,2,2,3,3}},azimuth_initial = 0.0,elevation_initial = 0,supply_position = {4.5,0.22, 0.3}}),-- MITRAIL AVR 1 
+	Guns = {				-- {Y, Z, X} from Blender
+		MG_20({muzzle_pos = {4.228,0.248, 0.699},_connector =  "Point_Gun",rates = {1025},effect_arg_number = 350,mixes = {{1,2,2,3,3}},azimuth_initial = 0.0,elevation_initial = 0,supply_position = {4.5,0.22, 0.3}})-- MITRAIL AVR 1 
 	}, -- 3dsmax X, Z, -Y
+	
 }
 
 add_aircraft(ARES)
