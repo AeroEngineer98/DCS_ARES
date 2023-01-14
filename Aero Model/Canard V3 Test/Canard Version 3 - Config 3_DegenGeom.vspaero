@@ -1,0 +1,30 @@
+Sref = 220.000000 
+Cref = 5.500000 
+Bref = 40.000000 
+X_cg = 11.980000 
+Y_cg = -0.000020 
+Z_cg = 0.886534 
+Mach = 0.000000, 0.100000, 0.200000, 0.300000, 0.400000, 0.500000, 0.600000, 0.700000, 0.800000, 0.900000, 1.000000, 1.100000 
+AoA = 0.000000 
+Beta = 0.000000 
+Vinf = 50.554646 
+Rho = 0.002377 
+ReCref = 5000000.000000 
+ClMax = -999.000000 
+MaxTurningAngle = -1.000000 
+Symmetry = NO 
+FarDist = -1.000000 
+NumWakeNodes = 64 
+WakeIters = 5 
+NumberOfControlGroups = 2 
+Main_Wing_Ailerons
+Main_Wing_Surf0_Ailerons,Main_Wing_Surf1_Ailerons
+-1, -1
+0
+Canard_Elevator
+Canard_Surf0_Elevator,Canard_Surf1_Elevator
+1, -1
+20
+Preconditioner = Matrix 
+Karman-Tsien Correction = N 
+Stability Type = 0 

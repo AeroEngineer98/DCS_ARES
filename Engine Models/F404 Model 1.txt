@@ -1,0 +1,19 @@
+table_data = {
+			-- Pmax - total thrust in Mil Pwr in Newtons for all engines
+			-- Pfor - total thrust in AB in Newtons for all engines
+			--   M		Pmax		 Pfor
+			{0.0,		34000.0,	 34000.0},	-- Made up from F-18 div by 2 - F404 w/out AB
+			{0.1,		34000.0,	 34000.0},
+			{0.2,		34000.0,	 34000.0},
+			{0.3,		35250.0,	 35250.0},
+			{0.4,		36500.0,	 36500.0},
+			{0.5,		38250.0,	 38250.0},
+			{0.6,		40000.0,	 40000.0},
+			{0.7,		46000.0,	 46000.0},
+			{0.8,		45000.0,	 45000.0},
+			{0.9,		43000.0,	 43000.0},
+			{1.0,		30000.0,	 30000.0}
+		}, -- end of table_data
+			-- M - Mach number
+			-- Pmax - Engine thrust at military power
+			-- Pfor - Engine thrust at AFB
