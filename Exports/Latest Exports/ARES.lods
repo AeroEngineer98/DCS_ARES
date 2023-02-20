@@ -1,0 +1,11 @@
+model={
+	lods={
+		{"ARES.edm",10000.0};
+	};
+         collision_shell="ARES_Collision.edm";
+
+}
+
+
+
+
